@@ -1,0 +1,10 @@
+{
+    // 刷题
+    "leetcode.endpoint": "leetcode-cn",
+    "leetcode.workspaceFolder": "/Users/lorialex/.leetcode",
+    "leetcode.hint.configWebviewMarkdown": false,
+    "leetcode.hint.commentDescription": false,
+    "leetcode.defaultLanguage": "javascript",
+    "leetcode.hint.commandShortcut": false,
+    "window.newWindowDimensions": "fullscreen",
+}

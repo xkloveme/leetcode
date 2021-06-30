@@ -10,46 +10,28 @@
  * @return {boolean}
  */
 var isValid = function (s) {
-  var stack = []
+  if (s.length % 2 === 1) {
+    return false;
+  }
+  let stack = [];
+  var map = new Map();
+  map.set('(', ')');
+  map.set('{', '}');
+  map.set('[', ']');
   for (let i = 0; i < s.length; i++) {
-    const element = s[i];
-    if (stack.join('').indexOf(element)) {
-      stack.split(i, 1)
+    let n = s[i];
+    if (map.has(n)) {
+      stack.push(n);
     } else {
-      stack.push(element)
+      const t = stack[stack.length - 1]
+      if (map.get(t) === n) {
+        stack.pop();
+      } else {
+        return false
+      }
     }
   }
-  // let str = '(){}[]'
-  // let num = null
-  // for (let index = 0; index < s.length; index++) {
-  //   const item = s[index];
-  //   // if (str.indexOf(item) === -1) {
-  //   //   return false
-  //   // }
-  //   switch (item) {
-  //     case '(':
-  //       num++
-  //       break;
-  //     case ')':
-  //       num--
-  //       break;
-  //     case '{':
-  //       num = num + 3
-  //       break;
-  //     case '}':
-  //       num = num - 3
-  //       break;
-  //     case '[':
-  //       num = num + 5
-  //       break;
-  //     case ']':
-  //       num = num - 5
-  //       break;
-  //     default:
-  //       break;
-  //   }
-  // }
-  // return num === 0
+  return stack.length===0
+
 };
 // @lc code=end
-
